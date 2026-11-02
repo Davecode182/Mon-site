@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daveratel Business</title>
+    <meta
+      name="description"
+      content="Daveratel Business is a modern business website template for services, branding, media, and client engagement."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --bg-soft: #121a2c;
+        --panel: #171f30;
+        --panel-2: #dfe9ff;
+        --surface: #ffffff;
+        --text: #eaf1ff;
+        --muted: #a6b3ce;
+        --primary: #6ea8fe;
+        --primary-dark: #3c78dc;
+        --accent: #97f0d0;
+        --shadow: 0 24px 60px rgba(11, 20, 40, 0.38);
+        --radius: 22px;
+        --container: 1200px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #0a1122 0%, #111b2f 100%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      img,
+      video {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+
+      .container {
+        width: min(var(--container), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.74rem;
+        font-weight: 700;
+      }
+
+      .section-heading {
+        max-width: 680px;
+        margin-bottom: 34px;
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.15;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.5rem;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: 0.25s ease;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        box-shadow: 0 18px 30px rgba(60, 120, 220, 0.35);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.2);
+        color: var(--text);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(9, 16, 28, 0.72);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 84px;
+        gap: 18px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent), var(--primary));
+        color: var(--bg);
+        font-weight: 900;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        color: var(--muted);
+      }
+
+      .nav-links a {
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: white;
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .hero {
+        padding: 90px 0 70px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        gap: 48px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.7rem, 5vw, 4.8rem);
+        line-height: 0.98;
+        margin: 0 0 18px;
+        letter-spacing: -0.06em;
+      }
+
+      .hero-copy p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .stats {
+        list-style: none;
+        padding: 0;
+        margin: 34px 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .stats li {
+        min-width: 120px;
+      }
+
+      .stats strong {
+        display: block;
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .stats span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .hero-visual {
+        position: relative;
+      }
+
+      .hero-card {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card img {
+        width: 100%;
+        height: 620px;
+        object-fit: cover;
+      }
+
+      .floating-card {
+        position: absolute;
+        bottom: 24px;
+        left: -22px;
+        background: rgba(8, 16, 28, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+        padding: 18px 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .floating-card strong {
+        display: block;
+        font-size: 1.8rem;
+      }
+
+      .floating-card span {
+        color: var(--muted);
+      }
+
+      section {
+        padding: 88px 0;
+      }
+
+      .about-grid,
+      .services-grid,
+      .showcase-grid,
+      .testimonials-grid,
+      .contact-grid {
+        display: grid;
+        gap: 28px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-copy {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius);
+        padding: 30px;
+      }
+
+      .about-copy p {
+        margin: 0 0 18px;
+        color: var(--muted);
+      }
+
+      .mini-list {
+        list-style: none;
+        padding: 0;
+        margin: 22px 0 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .mini-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text);
+      }
+
+      .mini-list li::before {
+        content: "✓";
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: rgba(151, 240, 208, 0.15);
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .about-visual {
+        border-radius: var(--radius);
+        overflow: hidden;
+        min-height: 360px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .about-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .services {
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .service-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius);
+        padding: 28px;
+        transition: transform 0.25s ease, border-color 0.25s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(110, 168, 254, 0.6);
+      }
+
+      .icon-box {
+        display: inline-grid;
+        place-items: center;
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(110, 168, 254, 0.2), rgba(151, 240, 208, 0.24));
+        font-size: 1.7rem;
+        margin-bottom: 18px;
+      }
+
+      .service-card h3 {
+        margin: 0 0 12px;
+        font-size: 1.5rem;
+      }
+
+      .service-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .showcase-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .showcase-item {
+        overflow: hidden;
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .showcase-item img {
+        height: 270px;
+        width: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .showcase-item:hover img {
+        transform: scale(1.04);
+      }
+
+      .showcase-content {
+        padding: 20px 22px 24px;
+      }
+
+      .showcase-content span {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: var(--accent);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .showcase-content h3 {
+        margin: 0;
+        font-size: 1.35rem;
+      }
+
+      .media-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 28px;
+      }
+
+      .video-card {
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .video-card video {
+        width: 100%;
+        height: 100%;
+        min-height: 360px;
+        object-fit: cover;
+        background: #000;
+      }
+
+      .video-card img {
+        width: 100%;
+        height: 100%;
+        min-height: 360px;
+        object-fit: cover;
+      }
+
+      .testimonials {
+        background: rgba(255, 255, 255, 0.01);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .testimonial {
+        padding: 26px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius);
+      }
+
+      .stars {
+        color: #ffd76a;
+        letter-spacing: 0.08em;
+        margin-bottom: 14px;
+      }
+
+      .testimonial p {
+        margin: 0 0 24px;
+        color: var(--muted);
+      }
+
+      .client {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .client img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .client small {
+        display: block;
+        color: var(--muted);
+      }
+
+      .contact {
+        padding-bottom: 110px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 0.95fr 1.05fr;
+      }
+
+      .contact-copy {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 30px;
+        border-radius: var(--radius);
+      }
+
+      .contact-copy h2 {
+        margin: 0 0 18px;
+        font-size: clamp(2rem, 4vw, 2.6rem);
+      }
+
+      .contact-copy p {
+        color: var(--muted);
+      }
+
+      .contact-details {
+        margin-top: 22px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .contact-item {
+        color: var(--text);
+      }
+
+      .contact-item strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 18px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius);
+        padding: 26px;
+      }
+
+      .contact-form label {
+        display: grid;
+        gap: 8px;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        background: rgba(8, 15, 27, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 12px;
+        padding: 0.9rem 1rem;
+        color: var(--text);
+      }
+
+      .contact-form textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .site-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 22px 0 40px;
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 18px;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(3, 7, 14, 0.8);
+        display: none;
+        place-items: center;
+        padding: 20px;
+        z-index: 100;
+      }
+
+      .modal.open {
+        display: grid;
+      }
+
+      .modal img {
+        max-width: min(78vw, 1100px);
+        max-height: 80vh;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        font-size: 1.8rem;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.12);
+        color: white;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .about-grid,
+        .contact-grid,
+        .media-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .services-grid,
+        .showcase-grid,
+        .testimonials-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .nav {
+          position: relative;
+        }
+
+        .menu-toggle {
+          display: inline-grid;
+          place-items: center;
+        }
+
+        .nav-links {
+          position: absolute;
+          left: 20px;
+          right: 20px;
+          top: calc(100% + 12px);
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          background: rgba(13, 20, 34, 0.98);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 16px;
+          padding: 18px 18px;
+          box-shadow: var(--shadow);
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .services-grid,
+        .showcase-grid,
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 70px;
+        }
+
+        .hero-copy h1 {
+          font-size: 2.5rem;
+        }
+
+        .floating-card {
+          left: 16px;
+          right: 16px;
+          bottom: 16px;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#top" class="brand" aria-label="Daveratel Business home">
+          <span class="brand-mark">D</span>
+          <span>Daveratel Business</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Open menu">☰</button>
+
+        <nav class="nav-links" aria-label="Main menu">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#media">Media</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="btn btn-primary" href="#contact">Book a Call</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Business growth partner</p>
+            <h1>Smart strategies for brands that want to lead.</h1>
+            <p>
+              Daveratel Business helps companies grow with strategic planning,
+              digital presence, branding, and modern customer experiences that
+              make a lasting impression.
+            </p>
+
+            <div class="cta-group">
+              <a class="btn btn-primary" href="#contact">Get Started</a>
+              <a class="btn btn-secondary" href="#services">Explore Services</a>
+            </div>
+
+            <ul class="stats">
+              <li>
+                <strong>5+</strong>
+                <span>Years</span>
+              </li>
+              <li>
+                <strong>120</strong>
+                <span>Clients</span>
+              </li>
+              <li>
+                <strong>98%</strong>
+                <span>Satisfaction</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-card">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+                alt="Business team meeting"
+              />
+            </div>
+            <div class="floating-card">
+              <strong>+42%</strong>
+              <span>Growth in 12 months</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">About us</p>
+            <h2>Built for ambitious businesses and personal brands.</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-copy">
+              <p>
+                At Daveratel Business, we combine strategy, creativity, and
+                execution to help businesses grow with clarity. Whether you are
+                launching a new service or improving your brand presence, we
+                create custom solutions that match your vision.
+              </p>
+              <p>
+                Our approach focuses on long-term value, strong communication, and
+                professional presentation that helps you stand out in a crowded
+                market.
+              </p>
+
+              <ul class="mini-list">
+                <li>Tailored business and marketing strategy</li>
+                <li>Professional brand identity and content support</li>
+                <li>Modern visual presentation for online growth</li>
+              </ul>
+            </div>
+
+            <div class="about-visual">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+                alt="Professional team collaborating"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="services">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">What we do</p>
+            <h2>Services designed to grow your business.</h2>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="icon-box">📈</div>
+              <h3>Business Strategy</h3>
+              <p>
+                Practical planning for growth, positioning, and decision-making
+                that keeps your business moving forward.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon-box">🎨</div>
+              <h3>Branding</h3>
+              <p>
+                Build memorable visual identity and messaging that attracts the
+                right clients and strengthens trust.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon-box">📹</div>
+              <h3>Media & Content</h3>
+              <p>
+                Professional images, short videos, and content frameworks to tell
+                your story with impact.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Portfolio</p>
+            <h2>Examples of work you can adapt to your own brand.</h2>
+          </div>
+
+          <div class="showcase-grid">
+            <article class="showcase-item">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
+                alt="Office workspace"
+                class="gallery-image"
+              />
+              <div class="showcase-content">
+                <span>Branding</span>
+                <h3>Professional Workspace Setup</h3>
+              </div>
+            </article>
+
+            <article class="showcase-item">
+              <img
+                src="https://images.unsplash.com/photo-1522204523234-8729aa6e3de6?auto=format&fit=crop&w=900&q=80"
+                alt="Business presentation"
+                class="gallery-image"
+              />
+              <div class="showcase-content">
+                <span>Marketing</span>
+                <h3>Presentation & Positioning</h3>
+              </div>
+            </article>
+
+            <article class="showcase-item">
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                alt="Creative business team"
+                class="gallery-image"
+              />
+              <div class="showcase-content">
+                <span>Strategy</span>
+                <h3>Campaign Planning</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="media" class="media">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Media</p>
+            <h2>Showcase your business with photos and videos.</h2>
+          </div>
+
+          <div class="media-grid">
+            <div class="video-card">
+              <video controls poster="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80">
+                <source
+                  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support video playback.
+              </video>
+            </div>
+
+            <div class="video-card">
+              <img
+                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80"
+                alt="Business meeting moment"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Testimonials</p>
+            <h2>Clients trust our process and results.</h2>
+          </div>
+
+          <div class="testimonials-grid">
+            <article class="testimonial">
+              <div class="stars">★★★★★</div>
+              <p>
+                “Daveratel Business gave our brand a clearer message and a more
+                polished presence. The results were visible almost immediately.”
+              </p>
+              <div class="client">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+                  alt="Client portrait"
+                />
+                <div>
+                  <strong>Amelia T.</strong>
+                  <small>Founder</small>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial">
+              <div class="stars">★★★★★</div>
+              <p>
+                “The team understood our goals and created a strategy that made
+                our business feel more premium and credible.”
+              </p>
+              <div class="client">
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+                  alt="Client portrait"
+                />
+                <div>
+                  <strong>Daniel K.</strong>
+                  <small>Business Owner</small>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial">
+              <div class="stars">★★★★★</div>
+              <p>
+                “Their communication, creativity, and professionalism made the
+                whole process smooth, clear, and effective.”
+              </p>
+              <div class="client">
+                <img
+                  src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=200&q=80"
+                  alt="Client portrait"
+                />
+                <div>
+                  <strong>Sarah M.</strong>
+                  <small>Marketing Lead</small>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="container contact-grid">
+          <div class="contact-copy">
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s build your next growth chapter.</h2>
+            <p>
+              Tell us about your business, goals, and the kind of digital presence
+              you want to create. We’ll help you shape a strong and modern online
+              identity.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-item">
+                <strong>Email</strong>
+                daveratel99@gmail.com
+              </div>
+              <div class="contact-item">
+                <strong>Phone</strong>
+                +(509) 5509-9765
+              </div>
+              <div class="contact-item">
+                <strong>Location</strong>
+
+                 Canapevert,Port au Prince, Haiti
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form">
+            <label>
+              Full name
+              <input type="text" name="name" placeholder="Your full name" />
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" />
+            </label>
+
+            <label>
+              Business / Project
+              <input type="text" name="project" placeholder="What are you building?" />
+            </label>
+
+            <label>
+              Message
+              <textarea name="message" placeholder="Tell us about your vision and goals..."></textarea>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="currentYear"></span> Daveratel Business</p>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal" id="imageModal" aria-label="Gallery image preview">
+      <button type="button" class="modal-close" aria-label="Close preview">×</button>
+      <img id="modalImage" src="" alt="Expanded gallery preview" />
+    </div>
+
+    <script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const closeModalButton = document.querySelector('.modal-close');
+      const year = document.getElementById('currentYear');
+
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+      });
+
+      document.querySelectorAll('.gallery-image').forEach((image) => {
+        image.addEventListener('click', () => {
+          modalImage.src = image.src;
+          modal.classList.add('open');
+        });
+      });
+
+      closeModalButton.addEventListener('click', () => {
+        modal.classList.remove('open');
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          modal.classList.remove('open');
+        }
+      });
+
+      document.querySelector('.contact-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        alert('Thank you! Your message has been received.');
+        event.target.reset();
+      });
+
+      year.textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
+<!--
+  Customize this website anytime by replacing the image and video URLs with your own photos and content.
+  Add more sections or cards as your business grows.
+-->
